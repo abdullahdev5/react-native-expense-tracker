@@ -1,0 +1,40 @@
+# Dependencies (Blocks node_modules everywhere at any depth)
+node_modules/
+**/node_modules/
+
+# Environment Variables & Secrets
+.env
+.env.*
+!.env.example
+
+# Logs & Debugging
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Expo & Mobile Build Assets
+.expo/
+*.apk
+*.aab
+*.ipa
+
+# Android Native Build Cache
+**/android/.gradle/
+**/android/app/build/
+**/android/build/
+
+# iOS Native Build Cache
+**/ios/Pods/
+**/ios/build/
+**/ios/DerivedData/
+
+# OS & IDE System Files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Archived / Legacy Code (Ignored completely)
+mobile-old/
+**/src-old/
