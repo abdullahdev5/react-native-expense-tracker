@@ -7,6 +7,10 @@
 [![WatermelonDB](https://img.shields.io/badge/WatermelonDB-FF4081?style=for-the-badge&logo=database&logoColor=white)](https://watermelondb.dev/)
 [![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)](https://jwt.io/)
 
+[![Figma Design](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)](YOUR_FIGMA_LINK_HERE)
+
+> 🎨 **Interactive Figma Prototype:** [Experience App UI/UX Flow](https://www.figma.com/proto/2eLRVC4EYvAPVcEI5g3rei/Expensify---Budget-Tracker-App--Community-?node-id=0-1&t=qGqB7DYby7ucnHnB-1)
+
 A production-grade, full-stack personal finance mobile application built with a **React Native (Expo)** client and an **Express.js** backend. Engineered using an **Offline-First Architecture** with **WatermelonDB** for zero-latency local operations and **WebSockets** for real-time background sync across devices.
 
 ---
