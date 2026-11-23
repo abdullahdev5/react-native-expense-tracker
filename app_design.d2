@@ -1,0 +1,56 @@
+# Define the main phone wrapper layout
+direction: down
+
+PhoneScreen: {
+  style.fill: "#f8fafc"
+  style.stroke: "#cbd5e1"
+  style.border-radius: 24
+
+  # 1. Custom Top App Bar
+  AppBar: {
+    direction: right
+    style.fill: "#6366f1"
+    
+    MenuIcon: "☰" { style.font-color: "#ffffff" }
+    ScreenTitle: "My Custom Dashboard" { style.font-color: "#ffffff"; style.font-weight: bold }
+    BellIcon: "🔔" { style.font-color: "#ffffff" }
+  }
+
+  # 2. Custom Input Component Area
+  SearchSection: "Search Filter Container" {
+    style.fill: "#ffffff"
+    style.stroke: "#e2e8f0"
+    
+    InputLabel: "Enter Username:" { style.font-size: 11 }
+    InputField: "   [ Type text here... ]   " {
+      style.fill: "#f1f5f9"
+      style.stroke: "#cbd5e1"
+      style.border-radius: 6
+    }
+  }
+
+  # 3. Main Body Container for Custom Cards
+  MainContent: "Dashboard Grid" {
+    direction: right
+    style.fill: transparent
+    style.stroke: dashed
+
+    # Custom Card 1
+    AnalyticCard: "Card: Analytics" {
+      style.fill: "#ecfdf5"
+      style.stroke: "#10b981"
+      
+      Icon: "📈"
+      Metric: "$24,500" { style.font-weight: bold }
+    }
+
+    # Custom Card 2
+    ProfileCard: "Card: User Info" {
+      style.fill: "#eff6ff"
+      style.stroke: "#3b82f6"
+      
+      Icon: "👤"
+      Name: "Alex Doe" { style.font-weight: bold }
+    }
+  }
+}

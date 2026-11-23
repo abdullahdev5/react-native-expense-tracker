@@ -100,6 +100,28 @@ export interface CreateTransactionDTO {
 }
 
 
+export interface TransactionImportMapping {
+  date: string;
+  amount: string;
+  categoryId?: string;
+  walletId?: string;
+  type?: string;
+  description?: string;
+  merchantName?: string
+}
+
+export interface ImportTransactionRequestBody {
+  sheetName?: string;
+  mapping: string;
+};
+
+export interface ImportTransactionPayload {
+  sheetName?: string;
+  mapping: TransactionImportMapping;
+  walletId: string;
+}
+
+
 export type TransactionType = "income" | "expense";
 export enum TransactionTypes {
   income = 'income',
@@ -119,8 +141,8 @@ export type TransactionsPushResponse = {
 }
 
 export type SupportedTransactionImportMimeType = 
-  'application/json'
+  | 'application/json'
   | 'text/csv'
   | 'application/csv'
-  | 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-  | 'application/pdf';
+  | 'application/vnd.ms-excel' // Standard for .xls and legacy/OS-reported Excel/CSV
+  | 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'; // Standard for .xlsx

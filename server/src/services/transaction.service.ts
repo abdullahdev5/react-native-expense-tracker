@@ -3,6 +3,7 @@ import {
   ITransaction,
   SupportedTransactionImportMimeType,
   TransactionDTO,
+  TransactionImportMapping,
   TransactionOptions,
   TransactionResponse,
   TransactionType,
@@ -351,7 +352,7 @@ class TransactionService {
   //   });
   // }
 
-  public async parseImportedTransaction(file: Express.Multer.File) {
+  public async parseImportTransactionFileData(file: Express.Multer.File, sheetName?: string) {
     let rawRows = [];
 
     const typedMimeType = file.mimetype as SupportedTransactionImportMimeType;
@@ -372,13 +373,14 @@ class TransactionService {
     }
 
     // application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
-    else if (typedMimeType === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') {
+    else if (typedMimeType === 'application/vnd.ms-excel' ||
+      typedMimeType === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') {
       const workbook = XLSX.read(file.buffer, { type: 'buffer' })
 
       const firstSheetName = workbook.SheetNames[0];
 
       if (firstSheetName) {        
-        const worksheet = workbook.Sheets[firstSheetName];
+        const worksheet = workbook.Sheets[sheetName ?? firstSheetName];
 
         if (worksheet) {
           rawRows = XLSX.utils.sheet_to_json(worksheet);
@@ -386,14 +388,17 @@ class TransactionService {
       }
     }
 
-    // application/pdf
-    else if (typedMimeType === 'application/pdf') {
-      const parser = new PDFParse({ data: file.buffer });
+    return rawRows;
+  }
 
-      const textResult = await parser.getText();
 
-      const parsedData = JSON.parse(textResult.)
-    }
+  public async mapAndSaveImportedTransactions(data: {
+    rawData: [],
+    userId: Types.ObjectId,
+    walletId: Types.ObjectId,
+    mapping: TransactionImportMapping
+  }) {
+
   }
 }
 

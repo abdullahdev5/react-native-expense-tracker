@@ -39,3 +39,5 @@ Thumbs.db
 mobile-old/
 **/src-old/
 **/assets-old/
+.planning/
+ui-layout.excalidraw
